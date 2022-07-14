@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import MovieItem from '~/components/MovieItem'
 import Loader from '~/components/Loader'
 
@@ -27,21 +28,17 @@ export default {
     Loader
   },
   computed: {
-    movies() {
-      return this.$store.state.movie.movies
-    },
-    message() {
-      return this.$store.state.movie.message
-    },
-    loading() {
-      return this.$store.state.movie.loading
-    }
+    ...mapState('movie',[
+      'movies',
+      'loading',
+      'message'
+    ])
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import "~/scss/main";
+
 .container{
   margin-top: 30px;
   .inner{
