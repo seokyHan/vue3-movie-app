@@ -2,17 +2,19 @@ import axios from 'axios'
 // lodash 배열 중복 제거
 import _uniqBy from 'lodash/uniqBy'
 
+const _defaultMessage = 'Search for the movie title!'
+
 export default {
     // module
     namespaced: true,
     // data
     state: () => ({
         movies: [],
-        message: 'Search for the movie title!',
+        message: _defaultMessage,
         loading: false,
         theMovie: {}
     }),
-    // computed
+    // computed랑 비슷
     getters: {},
     // methods
     // 데이터를 변경시켜주는 메서드만 mutation에 
@@ -25,6 +27,8 @@ export default {
         },
         resetMovies(state) {
             state.movies = []
+            state.message = _defaultMessage
+            state.loading = false
         }
     },
     // default로 비동기 처리됨
@@ -55,12 +59,12 @@ export default {
                 // 추가 요청
                 if(pageLength > 1){
                     for(let page = 2; page <= pageLength; page++){
-                        if(page > payload.number / 10){
+                        if(page > (payload.number / 10)){
                             break
                         }
                         const response = await _fetchMovie({
                             ...payload, 
-                            page: 1
+                            page
                         })
                         const { Search } = response.data
                         commit('updateState', {
@@ -68,7 +72,7 @@ export default {
                         })
                     }
                 }
-            } catch (message) {
+            } catch ({message}) {
                 commit('updateState', {
                     movies: [],
                     message

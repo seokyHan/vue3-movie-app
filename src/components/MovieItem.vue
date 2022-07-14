@@ -43,7 +43,7 @@ export default {
     async init() {
       const poster = this.movie.Poster
       if(!poster || poster === 'N/A'){
-        this,this.imageLoading = false
+        this.imageLoading = false
       }else{
         await this.$loadImage(this.movie.Poster)
         this.imageLoading = false

@@ -5,7 +5,6 @@
         v-if="imageLoading"
         absolute />
       <img
-        :style="width='100px'"
         :src="image"
         alt="name" />
     </div>
@@ -33,11 +32,11 @@ export default {
   },
   computed: {
     ...mapState('about', [
-      'image',
       'name',
       'email',
       'blog',
-      'phone'
+      'phone',
+      'image'
     ])
   },
   mounted() {

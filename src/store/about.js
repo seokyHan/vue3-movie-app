@@ -1,5 +1,5 @@
 export default {
-    namespaeced: true,
+    namespaced: true,
     state: () => ({
         name: 'SSEOK',
         email: 'sseok@gmail.com',
@@ -8,3 +8,4 @@ export default {
         image: 'https://heropy.blog/css/images/logo.png'
     })
 }
+
