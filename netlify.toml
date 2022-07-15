@@ -7,8 +7,8 @@
 # 개발 모드
 [dev]
     framework = "#custom" # 감지할 프로젝트 유형을 지정
-    command = "npm run dev" # 연결할 프로젝트의 개발 서버를 실행하는 명령어
-    targetPort = 8080 # 연결할 프로젝트 개발 서버 포트
-    port = 8888 # 출력할 Netlify 서버 포트
+    command = "npm run dev:webpack" # 연결할 프로젝트의 개발 서버를 실행하는 명령어
+    targetPort = 8079 # 연결할 프로젝트 개발 서버 포트
+    port = 8080 # 출력할 Netlify 서버 포트
     publish = "dist" # 프로젝트의 정적 컨텐츠 디렉터리
     autoLaunch = false # Netlify 서버가 준비되면 자동으로 브라우저 오픈할 건지 
